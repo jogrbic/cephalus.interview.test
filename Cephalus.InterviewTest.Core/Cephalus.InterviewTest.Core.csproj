@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cephalus.InterviewTest.Api.Core\Cephalus.InterviewTest.Api.Core.csproj" />
+    <ProjectReference Include="..\Cephalus.InterviewTest.Api.Data\Cephalus.InterviewTest.Api.Data.csproj" />
+    <ProjectReference Include="..\Cephalus.InterviewTest.Core.Model\Cephalus.InterviewTest.Core.Model.csproj" />
+  </ItemGroup>
+
+</Project>
