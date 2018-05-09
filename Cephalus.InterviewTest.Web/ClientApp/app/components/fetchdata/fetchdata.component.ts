@@ -6,18 +6,21 @@ import { Http } from '@angular/http';
     templateUrl: './fetchdata.component.html'
 })
 export class FetchDataComponent {
-    public forecasts: WeatherForecast[];
+	public invoices: InvoiceModel[];
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-            this.forecasts = result.json() as WeatherForecast[];
+		http.get(baseUrl + 'api/Invoice/GetInvoices').subscribe(result => {
+			this.invoices = result.json() as InvoiceModel[];
         }, error => console.error(error));
     }
 }
 
-interface WeatherForecast {
-    dateFormatted: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface InvoiceModel {
+	id: number,
+	accountId: number,
+	taxPointDate: Date,
+	reference: string
+	totalNet: number,
+	totalVat: number,
+	totalGross: number
 }

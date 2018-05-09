@@ -1,14 +1,18 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using Cephalus.InterviewTest.Api.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cephalus.InterviewTest.Web.Controllers
 {
-    public class HomeController : Controller
+	public class HomeController : Controller
     {
+		private readonly IInvoiceService _invoiceService;
+
+		public HomeController(IInvoiceService invoiceService)
+		{
+			_invoiceService = invoiceService;
+		}
+
         public IActionResult Index()
         {
             return View();

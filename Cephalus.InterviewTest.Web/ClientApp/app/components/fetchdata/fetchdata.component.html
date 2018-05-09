@@ -1,24 +1,26 @@
-<h1>Weather forecast</h1>
+<h1>Invoice Data Fetch</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Sample Invoice Data retrieval from remote SQL server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!invoices"><em>Loading...</em></p>
 
-<table class='table' *ngIf="forecasts">
+<table class='table' *ngIf="invoices">
     <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
+		<tr>
+			<th>Invoice Id</th>
+			<th>Net Price</th>
+			<th>Gross Price</th>
+			<th>Vat</th>
+			<th>Tax Point Date</th>
+		</tr>
     </thead>
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.dateFormatted }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
+		<tr *ngFor="let invoice of invoices">
+			<td>{{ invoice.id }}</td>
+			<td>{{ invoice.totalNet }}</td>
+			<td>{{ invoice.totalGross }}</td>
+			<td>{{ invoice.totalVat }}</td>
+			<td>{{ invoice.taxPointDate | date:'medium' }}</td>
+		</tr>
     </tbody>
 </table>
