@@ -1,7 +1,6 @@
 ﻿using Cephalus.InterviewTest.Api.Core;
 using Cephalus.InterviewTest.Api.Data;
 using Cephalus.InterviewTest.Core.Model;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
