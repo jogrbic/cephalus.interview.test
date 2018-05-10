@@ -3,7 +3,8 @@ import { Http } from '@angular/http';
 
 @Component({
     selector: 'fetchdata',
-    templateUrl: './fetchdata.component.html'
+	templateUrl: './fetchdata.component.html',
+	styleUrls: ['./fetchdata.component.css']
 })
 export class FetchDataComponent {
 	public invoices: InvoiceModel[];
@@ -22,5 +23,7 @@ interface InvoiceModel {
 	reference: string
 	totalNet: number,
 	totalVat: number,
-	totalGross: number
+	totalGross: number,
+	addres: string,
+	name: string
 }

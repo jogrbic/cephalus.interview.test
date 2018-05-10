@@ -11,5 +11,7 @@ namespace Cephalus.InterviewTest.Web.Model
 		public decimal TotalNet { get; set; }
 		public decimal TotalVat { get; set; }
 		public decimal TotalGross { get; set; }
+		public string Name { get; set; }
+		public string Address { get; set; }
 	}
 }

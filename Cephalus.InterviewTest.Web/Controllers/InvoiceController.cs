@@ -22,7 +22,12 @@ namespace Cephalus.InterviewTest.Web.Controllers
 		{
 			return await _invoiceService
 				.GetInvoicesAsync()
-				.ContinueWith((result) => result.Result.Select(invoice => new InvoiceModel
+				.ContinueWith((result) => result.Result.Select(invoice => ToInvoiceModel(invoice)));
+		}
+
+		private static InvoiceModel ToInvoiceModel(Core.Model.Invoice invoice)
+		{
+			return new InvoiceModel
 			{
 				AccountId = invoice.AccountId,
 				Id = invoice.Id,
@@ -30,8 +35,10 @@ namespace Cephalus.InterviewTest.Web.Controllers
 				TaxPointDate = invoice.TaxPointDate,
 				TotalGross = invoice.TotalGross,
 				TotalNet = invoice.TotalNet,
-				TotalVat = invoice.TotalVat
-			}));
+				TotalVat = invoice.TotalVat,
+				Address = invoice.GetAddress(),
+				Name = invoice.GetName()
+			};
 		}
-    }
+	}
 }

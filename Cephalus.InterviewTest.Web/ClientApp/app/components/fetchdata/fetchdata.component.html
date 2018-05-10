@@ -8,19 +8,25 @@
     <thead>
 		<tr>
 			<th>Invoice Id</th>
-			<th>Net Price</th>
 			<th>Gross Price</th>
+			<th>Net Price</th>
 			<th>Vat</th>
 			<th>Tax Point Date</th>
+			<th>Reference</th>
+			<th>Name</th>
+			<th>Address</th>
 		</tr>
     </thead>
     <tbody>
 		<tr *ngFor="let invoice of invoices">
 			<td>{{ invoice.id }}</td>
-			<td>{{ invoice.totalNet }}</td>
-			<td>{{ invoice.totalGross }}</td>
-			<td>{{ invoice.totalVat }}</td>
-			<td>{{ invoice.taxPointDate | date:'medium' }}</td>
+			<td>{{ invoice.totalGross | currency: 'GBP':2 }}</td>
+			<td>{{ invoice.totalNet | currency: 'GBP':2 }}</td>
+			<td>{{ invoice.totalVat | currency: 'GBP':2 }}</td>
+			<td>{{ invoice.taxPointDate | date:'yyyy-MM-dd' }}</td>
+			<td>{{ invoice.reference }}</td>
+			<td>{{ invoice.name }}</td>
+			<td class="truncated">{{ invoice.address }}</td>
 		</tr>
     </tbody>
 </table>

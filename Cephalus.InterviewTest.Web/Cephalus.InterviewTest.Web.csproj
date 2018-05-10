@@ -18,7 +18,14 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\components\counter\**" />
     <Content Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\counter\**" />
+    <None Remove="ClientApp\app\components\counter\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\app\components\home\home - Copy.component.html" />
   </ItemGroup>
 
   <ItemGroup>

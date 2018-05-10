@@ -5,7 +5,6 @@ using Cephalus.InterviewTest.Data.Sql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,11 +24,9 @@ namespace Cephalus.InterviewTest.Web
         {
             services.AddMvc();
 
-			var connection = "Server=webenginehq.com;Database=interview_test;User Id=interview_test_user;Password=RpSqBn6uH2D6x98Hb;";
-			var options = new DbContextOptionsBuilder();
+			var connectionString = Configuration.GetConnectionString("InvoiceDatabase");
 
-			options.UseSqlServer(connection);
-			services.AddSingleton<IInvoiceRepository>(new InvoiceRepositorySql(options.Options));
+			services.AddSingleton<IInvoiceRepository>(new InvoiceRepositorySql(connectionString));
 			services.AddTransient<IInvoiceService, InvoiceService>();
         }
 
